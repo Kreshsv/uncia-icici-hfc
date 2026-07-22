@@ -311,6 +311,30 @@ sudo docker run -d \
   -e LCNC_MCP_DEBUG_HEADERS="false" \
   180294195647.dkr.ecr.ap-south-1.amazonaws.com/uncia/unciaprime:UP-LCNCUPGRADE-0cd6142d
 
+######################
+# UPAPI
+######################
+
+sudo docker stop upapi || true
+sudo docker rm upapi || true
+
+docker run -d \
+  --name upapi \
+  --restart unless-stopped \
+  -p 6111:8080 \
+  --dns 10.51.1.57 \
+  --dns 10.78.28.82 \
+  -e dms.endpoint="" \
+  -e dms.uploadservice="" \
+  -e dms.fiid="" \
+  -e dms.finame="" \
+  -e dms.token="" \
+  -e dms.user="" \
+  -e dms.api-key="" \
+  -e storage.local-storage-enabled="true" \
+  -e storage.local-storage-path="/tmp/upapi-localstorage" \
+  180294195647.dkr.ecr.ap-south-1.amazonaws.com/uncia/unciaprime:UPAPI-d58a8e77
+
 
 ########
 # Nginx run
