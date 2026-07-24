@@ -332,7 +332,7 @@ docker run -d \
   -e dms.user="" \
   -e dms.api-key="" \
   -e storage.local-storage-enabled="true" \
-  -e storage.local-storage-path="/app/upapi-localstorage" \
+  -e storage.local-storage-path="/opt/DMS/" \
   -e dms.api-key="X7mQp2C9vR8kIc41" \
   180294195647.dkr.ecr.ap-south-1.amazonaws.com/uncia/unciaprime:UPAPI-d58a8e77
 
